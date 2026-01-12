@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
+import SmoothScroll from "./components/SmoothScroll";
 import Index from "./pages/Index";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./pages/NotFound";
@@ -18,6 +19,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <SmoothScroll />
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Index />} />

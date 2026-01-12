@@ -143,8 +143,9 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  /* Lenis handles smooth scrolling, so we disable native CSS smooth scroll to avoid conflicts used in SmoothScroll.tsx */
   html {
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
   }
 
   body {

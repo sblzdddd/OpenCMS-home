@@ -82,7 +82,7 @@ const HeroSection = () => {
                 if (img) {
                     gsap.to(img, { 
                         opacity: 1, 
-                        duration: 0.5, 
+                        duration: 2, 
                         onComplete: () => {
                              // Clean up canvases to free memory and ensure sharp text/image
                              captureEl.querySelectorAll('.capture-canvas').forEach(c => c.remove());
@@ -120,8 +120,8 @@ const HeroSection = () => {
             
             // Animate to "whole" state
             tl.to(clonedCanvas, {
-              duration: 1.5,
-              ease: "power2.out",
+              duration: 1,
+              ease: "power4.out",
               rotate: 0,
               x: 0,
               y: 0,
