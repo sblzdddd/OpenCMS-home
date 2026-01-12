@@ -36,12 +36,18 @@ const HeroSection = () => {
         </p>
         
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-up" style={{ animationDelay: "0.3s" }}>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2 animate-fade-up" style={{ animationDelay: "0.3s" }}>
           <Button onClick={() => window.open("https://github.com/sblzdddd/OpenCMS/releases/latest/", "_blank")} variant="hero" size="xl" className="gap-3">
             <Download className="w-5 h-5" />
             Download
           </Button>
         </div>
+        <a
+          href="/privacy-policy"
+          className="text-sm text-muted-foreground/20 hover:text-foreground transition-colors mb-10"
+        >
+          Privacy Policy
+        </a>
       </div>
 
       {/* Preview Image - positioned to show top part */}

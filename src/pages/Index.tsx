@@ -1,6 +1,5 @@
 import HeroSection from "@/components/landing/HeroSection";
 import FeatureSection from "@/components/landing/FeatureSection";
-import Footer from "@/components/landing/Footer";
 import { 
   LayoutGrid, 
   Calendar, 
@@ -29,7 +28,7 @@ const features = [
     id: "feature-1",
     title: "Dynamic Home Page",
     description:
-      "Sort anything on your home page by long press + drag. Add or remove any icons, resize widgets as you want! Make your campus management experience truly personal.",
+      "Sort anything on your home page by going to the edit mode. Add or remove any icons, resize widgets as you want! Make your campus management experience truly personal.",
     icon: LayoutGrid,
     imageUrl: feature1,
   },
@@ -94,24 +93,6 @@ const features = [
 const Index = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 glass">
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <h6 className="text-xl font-bold">
-            <a href="/" className="text-foreground">OpenCMS</a>
-          </h6>
-          <div className="hidden md:flex items-center gap-8">
-            <a href="#feature-1" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Features
-            </a>
-            <a target="_blank" href="https://github.com/sblzdddd/OpenCMS" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              <Github className="w-4 h-4 inline-block mr-2 mb-0.5" />
-              GitHub
-            </a>
-          </div>
-        </div>
-      </nav>
-
       {/* Hero Section */}
       <HeroSection />
 
@@ -168,8 +149,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <Footer />
     </div>
   );
 };

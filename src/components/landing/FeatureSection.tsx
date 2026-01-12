@@ -22,6 +22,28 @@ const FeatureSection = ({
 }: FeatureSectionProps) => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [rotation, setRotation] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    // Rotate based on mouse position relative to center
+    // Max rotation 10 degrees
+    const rotateX = ((y - centerY) / centerY) * -5;
+    const rotateY = ((x - centerX) / centerX) * 5;
+
+    setRotation({ x: rotateX, y: rotateY });
+  };
+
+  const handleMouseLeave = () => {
+    setRotation({ x: 0, y: 0 });
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -115,20 +137,35 @@ const FeatureSection = ({
                 : "opacity-0 translate-y-8 scale-95"
             }`}
           >
-            <div className="relative group">
+            <div 
+              className="relative group transition-transform duration-200 ease-out perspective-1000"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              style={{
+                perspective: "1000px",
+              }}
+            >
               {/* Glow effect */}
-              <div className="absolute inset-0 bg-primary/20 rounded-2xl blur-2xl group-hover:bg-primary/30 transition-colors duration-500" />
+              <div 
+                className="absolute inset-0 bg-primary/20 rounded-2xl blur-2xl group-hover:bg-primary/30 transition-all duration-500"
+                style={{
+                  transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg) scale(0.95)`,
+                }}
+              />
               
               {/* Image container */}
-              <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-elevated bg-card">
+              <div 
+                className="relative rounded-2xl overflow-hidden border-4 border-border/50 shadow-elevated bg-card transition-transform duration-200 ease-out will-change-transform"
+                style={{
+                  transform: `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
+                }}
+              >
                 <img
                   src={imageUrl}
                   alt={title}
                   className="w-full aspect-[4/3] object-cover"
                 />
                 
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             </div>
           </div>
