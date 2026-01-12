@@ -43,7 +43,7 @@ const HeroSection = () => {
           </Button>
         </div>
         <a
-          href="/privacy-policy"
+          href="/privacy-policy" style={{ animationDelay: "0.4s" }}
           className="text-sm text-muted-foreground/20 hover:text-foreground transition-colors mb-10"
         >
           Privacy Policy
@@ -51,7 +51,7 @@ const HeroSection = () => {
       </div>
 
       {/* Preview Image - positioned to show top part */}
-      <div className="relative w-full max-w-5xl mx-auto px-6 mb-12 animate-fade-up" style={{ animationDelay: "0.4s" }}>
+      <div className="relative w-full max-w-5xl mx-auto px-6 mb-12 animate-fade-up" style={{ animationDelay: "0.5s" }}>
         <div className="relative rounded-2xl overflow-hidden shadow-elevated">
           
           <img 
