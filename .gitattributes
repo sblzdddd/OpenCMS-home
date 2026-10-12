@@ -1,2 +1,3 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+src/components/ui/** linguist-vendored
